@@ -1,0 +1,44 @@
+{
+  "name": "babel6-usage",
+  "version": "1.0.0",
+  "description": "Babel 6.x usage",
+  "main": "index.js",
+  "scripts": {
+    "buildv1:src": "rm -rf dist && babel ./src -d dist -s",
+    "start:buildv1": "npm run buildv1:src && node dist/index.js",
+    "buildv2:src": "babel src --out-dir dist --source-maps --delete-dir-on-start",
+    "start:buildv2": "npm run buildv2:src && node dist/index.js",
+    "buildv3:src": "babel --no-babelrc . --out-dir dist --source-maps --delete-dir-on-start --presets=env --plugins=transform-runtime --ignore 'node_modules,dist,.babelrc,.compiled,.vscode'",
+    "buildv3": "npm run buildv3:src && mv dist/src/* dist && rm -rf dist/src",
+    "start:buildv3": "npm run buildv3 && node dist/index.js",
+    "buildv4:src": "$(which babel) --no-babelrc src --out-dir dist --source-maps --delete-dir-on-start --presets=env --plugins=transform-runtime",
+    "start:buildv4": "npm run buildv4:src && node dist/index.js",
+    "buildv5:src:watch": "babel src --out-dir dist --source-maps --delete-dir-on-start --watch",
+    "start:buildv5": "npm run buildv5:src:watch && node dist/index.js",
+    "buildAndRunWithBabelNode": "babel-node --presets=env --plugins=transform-runtime src",
+    "buildAndRunWithBabelRegister": "node --require ./node_modules/babel-register src",
+    "buildAndRunWithBabelRegisterv2": "node --require babel-register src/index.js",
+    "build": "$(which babel) --no-babelrc src --out-dir=dist --source-maps --delete-dir-on-start --presets=env --plugins=transform-runtime --copy-files",
+    "watch": "npm run build -- --watch",
+    "start": "npm run build && node --inspect dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenanhancer/babel6-usage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kenanhancer/babel6-usage/issues"
+  },
+  "homepage": "https://github.com/kenanhancer/babel6-usage#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {}
+}
