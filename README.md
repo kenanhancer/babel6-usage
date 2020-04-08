@@ -6,6 +6,7 @@ I test to debug Node.js app with babel tools. I have used babel, babel-node, bab
 if you want to see Babel 7.x usage, check this repository (https://github.com/kenanhancer/babel7-usage.git)
 
 ## package.json
+```json
 {
   "name": "babeltest1",
   "version": "1.0.0",
@@ -48,8 +49,10 @@ if you want to see Babel 7.x usage, check this repository (https://github.com/ke
   },
   "dependencies": {}
 }
+```
 
 ## tasks.json
+```json
 {
     "version": "2.0.0",
     "tasks": [
@@ -62,8 +65,10 @@ if you want to see Babel 7.x usage, check this repository (https://github.com/ke
         }
     ]
 }
+```
 
 ## launch.json
+```json
 {
     "version": "0.2.0",
     "configurations": [
@@ -131,3 +136,4 @@ if you want to see Babel 7.x usage, check this repository (https://github.com/ke
         }
     ]
 }
+```
